@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'recipe_model.dart';
 
 class RecipeDetailScreen extends StatelessWidget {
@@ -39,11 +41,30 @@ class RecipeDetailScreen extends StatelessWidget {
               height: 350,
               fit: BoxFit.cover,
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Ingredients',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Colors.green[200],
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(8.0),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.green.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                      ),
+                    ]),
+                child: const Text(
+                  'Ingredients',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             Padding(
@@ -54,18 +75,37 @@ class RecipeDetailScreen extends StatelessWidget {
                     .map(
                       (ingredient) => Text(
                         '• $ingredient',
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w500),
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     )
                     .toList(),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'Instructions',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.green[200],
+                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.green.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                    ),
+                  ],
+                ),
+                child: const Text(
+                  'Instructions',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             Padding(
@@ -73,11 +113,14 @@ class RecipeDetailScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: recipe.instructions
-                    .map((instruction) => Text(
-                          '• $instruction',
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w500),
-                        ))
+                    .map(
+                      (instruction) => Text(
+                        '• $instruction',
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
                     .toList(),
               ),
             ),
